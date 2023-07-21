@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import debounce from '../utils';
+import { TimeBasedDebounce, UserTypedDebounce } from '../utils';
 
 const DummyComponent = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [userTypedValue, setUserTyped] = useState('');
+  const [timeBaseValue, setTimeBaseValue] = useState('');
   const [dummyData, setDummyData] = useState(null);
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
-  const fetchDummyData = async () => {
+  const fetchDummyData = async (value) => {
+    console.log('calling');
+    if (!value?.trim()?.length) return;
     try {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/posts?userId=${inputValue}`
-      );
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${value}`);
       const data = await response.json();
       setDummyData(data);
     } catch (error) {
@@ -21,19 +19,41 @@ const DummyComponent = () => {
   };
 
   useEffect(() => {
-    debounce(() => fetchDummyData(), 700);
-  }, [inputValue]);
+    if (userTypedValue) UserTypedDebounce(() => fetchDummyData(userTypedValue), 700);
+  }, [userTypedValue]);
+
+  useEffect(() => {
+    if (timeBaseValue) TimeBasedDebounce(() => fetchDummyData(timeBaseValue), 3000);
+  }, [timeBaseValue]);
 
   return (
     <div className="page-center">
       <div className="container">
-        <input
-          type="text"
-          value={inputValue}
-          onChange={handleInputChange}
-          className="input-field"
-          placeholder="Enter a user ID"
-        />
+        <label>
+          User Typed debounce
+          <br />
+          <br />
+          <input
+            type="text"
+            value={userTypedValue}
+            onChange={(event) => setUserTyped(event.target.value)}
+            className="input-field"
+            placeholder="Enter a user ID"
+          />
+        </label>
+
+        <label>
+          Time based debounce
+          <br />
+          <br />
+          <input
+            type="text"
+            value={timeBaseValue}
+            onChange={(event) => setTimeBaseValue(event.target.value)}
+            className="input-field"
+            placeholder="Enter a user ID"
+          />
+        </label>
 
         {dummyData && (
           <div className="card-container">
