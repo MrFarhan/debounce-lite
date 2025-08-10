@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM"],
+    "declaration": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "moduleResolution": "Bundler",
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "types": ["vitest/globals", "node"]
+  },
+  "include": ["index.ts", "tests/**/*.ts"]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "debounce-lite",
+  "version": "1.0.1",
+  "description": "Dual-strategy debounce: extend vs fixedDeadline, with leading/trailing, maxWait, cancel/flush.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsup index.ts --dts --format cjs --out-dir dist --clean",
+    "dev": "tsup index.ts --dts --format cjs --out-dir dist --watch --clean",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  },
+  "license": "MIT",
+  "repository": "github:MrFarhan/debounce-lite",
+  "keywords": [
+    "debounce",
+    "fixed-deadline",
+    "throttle",
+    "typescript"
+  ]
+}
