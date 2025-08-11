@@ -1,6 +1,6 @@
 {
   "name": "debounce-lite",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Dual-strategy debounce: extend vs fixedDeadline, with leading/trailing, maxWait, cancel/flush.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
