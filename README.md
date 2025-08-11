@@ -14,6 +14,10 @@ TypeScript-first, zero deps, tiny, and production-ready.
 - **Zero dependencies** • **Tiny** • **CJS build** (works everywhere)
 
 ---
+## Live Demo
+Try it here: https://debounce-lite.surge.sh
+
+---
 
 ## Install
 ```bash

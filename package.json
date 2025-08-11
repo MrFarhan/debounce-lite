@@ -4,6 +4,7 @@
   "description": "Dual-strategy debounce: extend vs fixedDeadline, with leading/trailing, maxWait, cancel/flush.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "homepage": "https://debounce-lite.surge.sh",
   "files": [
     "dist",
     "README.md",
